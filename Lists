@@ -1,0 +1,50 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        List<double> numbers = new List<double>();
+
+        Console.WriteLine("Enter a list of numbers, type 0 when finished.");
+
+        // Input loop to get numbers from the user
+        while (true)
+        {
+            Console.Write("Enter number: ");
+            if (double.TryParse(Console.ReadLine(), out double num))
+            {
+                if (num == 0)
+                    break;
+                numbers.Add(num);
+            }
+            else
+            {
+                Console.WriteLine("Please enter a valid number.");
+            }
+        }
+
+        if (numbers.Count > 0)
+        {
+            // Computing sum
+            double sum = numbers.Sum();
+
+            // Computing average
+            double average = numbers.Average();
+
+            // Finding maximum
+            double max = numbers.Max();
+
+            // Displaying results
+            Console.WriteLine($"The sum is: {sum}");
+            Console.WriteLine($"The average is: {average}");
+            Console.WriteLine($"The largest number is: {max}");
+        }
+        else
+        {
+            Console.WriteLine("No numbers entered. Exiting...");
+        }
+    }
+}
